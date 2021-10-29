@@ -1,5 +1,8 @@
-numpy>=1.14.5
-torch>=0.4.0
-scikit-image>=0.14.0
+numpy
+ipython
+cudatoolkit==10.0
+pytorch==1.2.0==py3.6_cuda10.0.130_cudnn7.6.2_0
+torchvision==0.4.0
+scikit-image
 SimpleITK
 -e git+https://github.com/MIC-DKFZ/batchgenerators#egg=batchgenerators
