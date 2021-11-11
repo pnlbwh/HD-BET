@@ -1,4 +1,4 @@
-name: hd-bet-1
+name: hd-bet
 
 channels:
   - pytorch
