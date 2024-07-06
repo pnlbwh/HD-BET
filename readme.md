@@ -26,37 +26,30 @@ coefficient and -0.80 to -2.75 mm for the Hausdorff distance (Bonferroni-adjuste
 - HD-BET is very fast on GPU with <10s run time per MRI sequence. Even on CPU it is not slower than other commonly 
 used tools.
 
-## Installation Instructions
-
-Psychiatry Neuroimaging Laboratory has redefined the installation scheme for this program to work on
-all modern GPUs: RTX 4080, RTX 4090, RTX A6000, A100, and GTX 1080. This redefinition came out of days of research
-at Psychiatry Neuroimaging Laboratory, Brigham and Women's Hospital, Boston, Massachusetts. The steps are:
+## Installation Instructions 
+Note that you need to have a python3 installation for HD-BET to work. Please also make sure to install HD-BET with the
+correct pip version (the one that is connected to python3). You can verify this using the `--version` command:
 
 ```
-conda create -y -n hd-bet python=3.6
-conda activate hd-bet
-
-git clone --single-branch --branch pnl git@github.com:pnlbwh/HD-BET.git
-cd HD-BET/
-pip install .
-
-conda install pytorch torchvision pytorch-cuda=12.1 -c pytorch -c nvidia
+(dl_venv) fabian@Fabian:~$ pip --version
+pip 20.0.2 from /home/fabian/dl_venv/lib/python3.6/site-packages/pip (python 3.6)
 ```
 
-The last `pytorch-cuda=12.1` makes it possible to run `hd-bet` on our GPUs that are CUDA `v12.*` compatible.
-Both channels `-c pytorch -c nvidia` are necessary to install dependencies of `pytorch-cuda=12.1`
+If it does not show python 3.X, you can try pip3. If that also does not work you probably need to install python3 first.
 
-After completing installation, you can invoke `hd-bet` by absolute path without sourcing or activating any environment:
+Once python 3 and pip are set up correctly, run the following commands to install HD-BET:
+1) Clone this repository:
+    ```bash
+    git clone https://github.com/MIC-DKFZ/HD-BET
+    ```
+2) Go into the repository (the folder with the setup.py file) and install:
+    ```
+    cd HD-BET
+    pip install -e .
+    ```
+3) Per default, model parameters will be downloaded to ~/hd-bet_params. If you wish to use a different folder, open 
+HD_BET/paths.py in a text editor and modify ```folder_with_parameter_files```
 
-> /path/to/miniconda3/envs/hd-bet/bin/hd-bet --help
-
-<details><summary>References</summary>
- 
-* https://anaconda.org/pytorch/pytorch-cuda/files
-* https://www.reddit.com/r/pytorch/comments/11z9vkf/pytorch_installation_with_cuda_121/
-* https://pytorch.org/get-started/locally/
-
-</details>
 
 ## How to use it 
 
