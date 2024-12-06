@@ -33,14 +33,14 @@ all modern GPUs: RTX 4080, RTX 4090, RTX A6000, A100, and GTX 1080. This redefin
 at Psychiatry Neuroimaging Laboratory, Brigham and Women's Hospital, Boston, Massachusetts. The steps are:
 
 ```
-conda create -y -n hd-bet python=3.6
+conda create -y -n hd-bet python=3.9 -c conda-forge --override-channel
 conda activate hd-bet
 
 git clone --single-branch --branch pnl git@github.com:pnlbwh/HD-BET.git
 cd HD-BET/
 pip install .
 
-conda install pytorch torchvision pytorch-cuda=12.1 -c pytorch -c nvidia
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 ```
 
 The last `pytorch-cuda=12.1` makes it possible to run `hd-bet` on our GPUs that are CUDA `v12.*` compatible.
