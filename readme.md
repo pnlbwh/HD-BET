@@ -33,7 +33,7 @@ all modern GPUs: RTX 4080, RTX 4090, RTX A6000, A100, and GTX 1080. This redefin
 at Psychiatry Neuroimaging Laboratory, Brigham and Women's Hospital, Boston, Massachusetts. The steps are:
 
 ```
-conda create -y -n hd-bet python=3.9 -c conda-forge --override-channel
+conda create -y -n hd-bet python=3.9 -c conda-forge --override-channels
 conda activate hd-bet
 
 git clone --single-branch --branch pnl git@github.com:pnlbwh/HD-BET.git
@@ -43,20 +43,14 @@ pip install .
 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 ```
 
-The last `pytorch-cuda=12.1` makes it possible to run `hd-bet` on our GPUs that are CUDA `v12.*` compatible.
-Both channels `-c pytorch -c nvidia` are necessary to install dependencies of `pytorch-cuda=12.1`
+PyTorch installation is inspired by https://pytorch.org/get-started/locally/.
+
 
 After completing installation, you can invoke `hd-bet` by absolute path without sourcing or activating any environment:
 
 > /path/to/miniconda3/envs/hd-bet/bin/hd-bet --help
 
-<details><summary>References</summary>
- 
-* https://anaconda.org/pytorch/pytorch-cuda/files
-* https://www.reddit.com/r/pytorch/comments/11z9vkf/pytorch_installation_with_cuda_121/
-* https://pytorch.org/get-started/locally/
 
-</details>
 
 ## How to use it 
 
