@@ -72,7 +72,7 @@ def run_hd_bet(mri_fnames, output_fnames, mode="accurate", config_file=os.path.j
 
     params = []
     for p in list_of_param_files:
-        params.append(torch.load(p, map_location=lambda storage, loc: storage))
+        params.append(torch.load(p, map_location=lambda storage, loc: storage, weights_only=True))
 
     for in_fname, out_fname in zip(mri_fnames, output_fnames):
         mask_fname = out_fname[:-7] + "_mask.nii.gz"
