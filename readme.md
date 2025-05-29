@@ -36,7 +36,7 @@ at Psychiatry Neuroimaging Laboratory, Brigham and Women's Hospital, Boston, Mas
 conda create -y -n hd-bet python=3.9 -c conda-forge --override-channels
 conda activate hd-bet
 
-git clone --single-branch --branch pnl git@github.com:pnlbwh/HD-BET.git
+git clone --single-branch --branch pnl https://github.com/pnlbwh/HD-BET.git
 cd HD-BET/
 pip install .
 
